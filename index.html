@@ -37,18 +37,40 @@
 				</section>
 
                                 <section>
-                                    <h1>Bio</h1>
+                                    <h2>Bio</h2>
                                     <ul>
                                         <li><a href="https://twitter.com/EnaleanTeam">@EnaleanTeam</a> CTO</li>
-                                        <li>Developer</li>
-                                        <li>Agile</li>
-                                        <li>Software engineering</li>
+                                        <li>#developer</li>
+                                        <li>#agile</li>
+                                        <li>#SoftwareEngineering</li>
                                     </ul>
                                     <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
                                 </section>
 
                                 <section>
-                                    <h1>What is this all about ? - The techno</h1>
+                                    <h2>What is this all about ? - The fame</h2>
+                                    <img src="img/docker-whale.png" style="margin-left: auto; margin-right: auto;" />
+                                    <ul>
+                                        <li>Started in January 2013 (22 months ago)</li>
+                                        <li>Open source / 650 contributors</li>
+                                        <li>45K docker repositories on public hub</li>
+                                        <li>Involved: Redhat, Microsoft, Google, VMWare...</li>
+                                    </ul>
+                                    <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
+                                </section>
+
+                                <section>
+                                    <h2>What is this all about ? - The use cases</h2>
+                                    <ul>
+                                        <li>PaaS</li>
+                                        <li>Continuous delivery</li>
+                                        <li>Continuous integration</li>
+                                    </ul>
+                                    <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
+                                </section>
+
+                                <section>
+                                    <h2>What is this all about ? - The techno</h2>
                                     <div style="width: 700px; margin-left: auto; margin-right: auto;">
                                         <div style="float: left;">
                                             <img src="img/docker-VMs.png" style="display: block;">
@@ -63,45 +85,54 @@
                                 </section>
 
                                 <section>
-                                    <h1>What is this all about ? - The use cases</h1>
+                                    <h2>What is this all about ? - Terms</h2>
                                     <ul>
-                                        <li>Continuous delivery</li>
-                                        <li>Continuous integration</li>
-                                        <li>PaaS</li>
-                                        <li>Services composition</li>
+                                        <li>Image</li>
+                                        <li>Container</li>
+                                        <li>Dockerfile</li>
                                     </ul>
+                                    <img src="img/terms.png" style="margin-left: auto; margin-right: auto;" />
                                     <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
                                 </section>
 
                                 <section>
-                                    <h1>What is this all about ? - The fame</h1>
-                                    <ul>
-                                        <li>Started in January 2013 (22 months ago)</li>
-                                        <li>650 contributors</li>
-                                        <li>45K docker repositories on public hub</li>
-                                        <li>Involved: Redhat, Microsoft, Google, VMWare...</li>
-                                    </ul>
+                                    <h2>What is this all about ? - Dockerfile</h2>
+                                    <section>
+                                        <pre><code data-trim>
+                                        FROM debian:jessie
+
+RUN apt-get install apache wordpress
+
+COPY . /var/www
+
+CMD /usr/sbin/httpd -DFOREGROUND
+                                        </code></pre>
+                                    </section>
                                     <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
                                 </section>
 
                                 <section>
-                                    <h1>Example: mytuleap.com</h1>
+                                    <h2>Example: mytuleap.com</h2>
                                     <img src="img/tuleap-cloud.png">
                                     <ul>
                                         <li>Sprint 2014, docker v0.9</li>
-                                        <li>4 days to pack Tuleap in an image (full LAMP stack)</li>
+                                        <li>4 days to pack Tuleap in a container</li>
                                     </ul>
                                     <span style="align: center;" class="fragment"><strong>Demo !</strong></span>
                                     <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
                                 </section>
 
                                 <section>
-                                    <h1>Architecture</h1>
+                                    <h2>mytuleap.com: Architecture</h2>
                                     <img src="img/Architecture.png">
                                 </section>
 
                                 <section>
-                                    <h1>Developers power</h1>
+                                    <h1>Problem #1: paper tigers</h1>
+                                </section>
+
+                                <section>
+                                    <h2>Developers power</h2>
                                     <div style="align: center;" class="fragment">Software is cheap</div>
                                     <div class="fragment">
                                         <img src="img/can.jpg" style="display: block; margin-left: auto; margin-right: auto;" />
@@ -110,26 +141,24 @@
                                 </section>
 
                                 <section>
-                                    <h1>Why software is cheap?</h1>
+                                    <h2>Why software is cheap?</h2>
                                     <ul>
-                                        <li>Easy to test, experiment, revert</li>
+                                        <li>Easy to experiment, revert</li>
                                         <li>You can make mistakes</li>
                                     </ul>
-                                    <div class="fragment">
-                                        <img src="img/savant-fou.png" style="display: block; margin-left: auto; margin-right: auto;" />
-                                    </div>
+                                    <img src="img/savant-fou.png" style="display: block; margin-left: auto; margin-right: auto;" />
                                     <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
                                 </section>
 
                                 <section>
-                                    <h1>Developers power...less</h1>
-                                    <span style="align: center;" class="fragment">Software is cheap...</span>
+                                    <h2>Developers power...less</h2>
+                                    <span style="align: center;">Software is cheap...</span>
                                     <span style="align: center;" class="fragment">but deployment is hard</span>
                                     <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
                                 </section>
 
                                 <section>
-                                    <h1>Why deployment is hard ?</h1>
+                                    <h2>Why deployment is hard ?</h2>
                                     <div style="width: 100%">
                                         <ul style="float: left;">
                                             <li class="fragment">apt-get install redis npm rails bundle mongrel nginx</li>
@@ -144,31 +173,7 @@
                                 </section>
 
                                 <section>
-                                    <h1>How developers do Ops</h1>
-                                    <ul>
-                                        <li class="fragment">Install ubuntu</li>
-                                        <li class="fragment">mix with debian repo</li>
-                                        <li class="fragment">bring PC to IT desk</li>
-                                        <li class="fragment"><q>&ldquo;I have no idea what I did to get it work&rdquo;</q></li>
-                                    </ul>
-                                    <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
-                                </section>
-
-                                <section>
-                                    <h1>Ops with docker</h1>
-                                    <div style="width: 900px; margin-left: auto; margin-right: auto;">
-                                        <img src="img/boot-full.png" style="display: block; margin-bottom: 75px;" class="fragment"/>
-                                        <img src="img/boot-snap.png" style="display: block; margin-bottom: 75px;" class="fragment"/>
-                                        <img src="img/boot-docker.png" style="display: block; margin-bottom: 75px;" class="fragment"/>
-                                    </div>
-                                    <ul class="fragment">
-                                        <li>Easy to test & experiment</li>
-                                        <li>No fear to break</li>
-                                    </ul>
-                                </section>
-
-                                <section>
-                                    <h1>Re-define delivery</h1>
+                                    <h2>Docker redefine delivery</h2>
                                     <div style="width: 900px; margin-left: auto; margin-right: auto;">
                                         <div style="float: left;">
                                             <span>Traditional</span>
@@ -181,9 +186,9 @@
                                     </div>
                                     <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
                                 </section>
-                                
+
                                 <section>
-                                    <h1>Microservices for the masses</h1>
+                                    <h2>Microservices for the masses</h2>
                                     <div style="width: 900px; margin-left: auto; margin-right: auto;">
                                         <img src="img/microservices.png" style="display: block;">
                                     </div>
@@ -191,7 +196,35 @@
                                 </section>
 
                                 <section>
+                                    <h1>Problem #2: princess effect</h1>
+                                </section>
+
+                                <section>
+                                    <h2>How developers do Ops</h2>
+                                    <ul>
+                                        <li class="fragment">Install ubuntu</li>
+                                        <li class="fragment">mix with debian repo</li>
+                                        <li class="fragment">bring PC to IT desk</li>
+                                    </ul>
+                                    <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
+                                </section>
+
+                                <section>
+                                    <h2>What docker change</h2>
+                                    <div style="width: 900px; margin-left: auto; margin-right: auto;">
+                                        <img src="img/boot-crap.png" style="display: block; margin-bottom: 30px;" class="fragment"/>
+                                        <img src="img/boot-full.png" style="display: block; margin-bottom: 30px;" class="fragment"/>
+                                        <img src="img/boot-snap.png" style="display: block; margin-bottom: 30px;" class="fragment"/>
+                                        <img src="img/boot-docker.png" style="display: block;" class="fragment"/>
+                                    </div>
+                                </section>
+
+                                <section>
                                     <h1>Back on mytuleap.com</h1>
+                                </section>
+
+                                <section>
+                                    <h2>How docker made this possible ?</h2>
                                     <img src="img/tuleap-cloud.png">
                                     <ul>
                                         <li>4 days: low learning curve</li>
@@ -202,13 +235,26 @@
                                 </section>
 
                                 <section>
-                                    <h1>Back on mytuleap.com / architecture</h1>
-                                    <img src="img/archi-my.png" style="margin-left: auto; margin-right: auto;">
+                                    <h2>mytuleap.com / architecture</h2>
+                                    <img src="img/archi-my.png" style="margin-top: 0; margin-left: auto; margin-right: auto;">
                                     <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
                                 </section>
 
                                 <section>
-                                    <h1>What's next / where to start ?</h1>
+                                    <h1>Conclusion</h1>
+                                </section>
+
+                                <section>
+                                    <h2>Developers take power</h2>
+                                    <ul>
+                                        <li>Infrastructure as code level up</li>
+                                        <li>Deployment is no longer an issue</li>
+                                        <li>Use the right tool for the right job</li>
+                                    </ul>
+                                </section>
+
+                                <section>
+                                    <h2>What's next / where to start ?</h2>
                                     <ul>
                                         <li><a href="http://docker.io">docker.io</a></li>
                                         <li>Grenoble devops meetup: next tuesday (25th) @ Voxity</li>
