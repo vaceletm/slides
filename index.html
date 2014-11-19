@@ -206,17 +206,50 @@ CMD /usr/sbin/httpd -DFOREGROUND
                                         <li class="fragment">mix with debian repo</li>
                                         <li class="fragment">bring PC to IT desk</li>
                                     </ul>
+                                    <img src="img/step-back-please.jpg" style="display: block;margin-left: auto; margin-right: auto;"class="fragment" />
                                     <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
                                 </section>
 
                                 <section>
                                     <h2>What docker change</h2>
-                                    <div style="width: 900px; margin-left: auto; margin-right: auto;">
-                                        <img src="img/boot-crap.png" style="display: block; margin-bottom: 30px;" class="fragment"/>
-                                        <img src="img/boot-full.png" style="display: block; margin-bottom: 30px;" class="fragment"/>
-                                        <img src="img/boot-snap.png" style="display: block; margin-bottom: 30px;" class="fragment"/>
-                                        <img src="img/boot-docker.png" style="display: block;" class="fragment"/>
+                                    <div style="width: 1100px; margin-left: auto; margin-right: auto;">
+                                        <div style="float: right; margin: 0;">
+                                            <img src="img/boot-crap.png" style="display: block; margin-bottom: 34px; margin-top: 0;" class="fragment"/>
+                                            <img src="img/boot-full.png" style="display: block; margin-bottom: 34px; margin-top: 0;" class="fragment"/>
+                                            <img src="img/boot-snap.png" style="display: block; margin-bottom: 34px; margin-top: 0;" class="fragment"/>
+                                            <img src="img/boot-docker.png" style="display: block; margin-top: 0; " class="fragment"/>
+                                        </div>
+                                        <div>
+                                            <img src="img/boot-meuchine.png" style="display: block;" />
+                                        </div>
                                     </div>
+                                </section>
+
+                                <section>
+                                    <h2>Shared environments</h2>
+                                    <section>
+                                        <div class="fragment">
+                                            <ul><li>Need an elasticsearch server ?</li></ul>
+                                            <pre><code data-trim>
+                                            $> docker run --name=fts enalean/elasticsearch
+                                            </code></pre>
+                                        </div>
+
+                                        <div class="fragment">
+                                            <ul><li>Need an ldap server ?</li></ul>
+                                            <pre><code data-trim>
+                                            $> docker run --name=ldap enalean/ldap
+                                            </code></pre>
+                                        </div>
+
+                                        <div class="fragment">
+                                            <ul><li>Need to build your angular app ?</li></ul>
+                                            <pre><code data-trim>
+                                            $> docker run -v $PWD:/build enalean/build-angular
+                                            </code></pre>
+                                        </div>
+                                    </section>
+                                    <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><a href="www.enalean.com">www.enalean.com</a></div>
                                 </section>
 
                                 <section>
