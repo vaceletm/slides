@@ -1,1 +1,1 @@
-Talk by @vaceletm at Agile Tour Montpellier 2014
+Talks by @vaceletm
