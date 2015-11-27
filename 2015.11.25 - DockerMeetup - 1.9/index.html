@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Docker 1.9... what's new ?</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/enalean/enalean.css" id="theme">
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <!-- Front page -->
+                <section class="no-slide-number"> <!-- add class="no-slide-number" to hide the slide number during this slide -->
+                    <img class="logo-front-page" src="css/theme/enalean/img/enalean-logo.png" />
+                    <h1>Docker 1.9: what's new ?</h1>
+                    <h3>Manuel Vacelet</h3>
+
+                    <div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+                </section>
+
+                <section>
+					<h2>Docker project</h2>
+                    <img src="img/small_v.png">
+                    <img src="img/sticker-compose.png">
+                    <img src="img/sticker-machine.png">
+                    <img src="img/sticker-swarm.png">
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+                <section>
+					<h2>Engine</h2>
+                    <img src="img/small_v.png" style="float: left; margin-left: 50px;">
+                    <div style="float: left; margin-left: 150px;">
+                        <pre><code data-trim>$ docker run -ti ubuntu bash</code></pre>
+                        <ul>
+                            <li>Container management</li>
+                            <li>Manage images</li>
+                        </ul>
+                    </div>
+
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+                <section>
+					<h2>Compose</h2>
+                    <img src="img/sticker-compose.png" style="float: left; margin-left: 50px;">
+                    <div style="float: left; margin-left: 150px;">
+                        <ul>
+                            <li>Container orchestration</li>
+                            <li>Assemble several containers to create a stack</li>
+                        </ul>
+                        <pre><code data-trim>$ docker-compose up -d</code></pre>
+                        <pre style="float: left; width=420px;"><code data-trim style="min-height: 240px;">
+web:
+  image: enalean/tuleap-aio-dev:nodb
+  links:
+   - ldap:ldap
+  volumes:
+   - .:/usr/share/tuleap
+  env_file:
+   - .env
+  volumes_from:
+   - tuleap_data
+</code></pre>
+<pre style="float: left; width:420px;"><code data-trim style="min-height: 240px;">
+ldap:
+  image: enalean/ldap
+  env_file:
+   - .env
+  volumes_from:
+   - tuleap_ldap_data
+</code></pre>
+                    </div>
+
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+                <section>
+					<h2>Machine</h2>
+                    <img src="img/sticker-machine.png" style="float: left; margin-left: 50px;">
+                    <div style="float: left; margin-left: 150px;">
+                        <pre><code data-trim>$ docker-machine -d rackspace my-docker-host
+$ docker run $(docker-machine config my-host-host) -ti ubuntu bash
+    </code></pre>
+                        <ul>
+                            <li>Build host where containers will be run</li>
+                            <li>Remove the burden to get a docker engine up &amp; running</li>
+                        </ul>
+                    </div>
+
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+                <section>
+					<h2>Swarm</h2>
+                    <img src="img/sticker-swarm.png" style="float: left; margin-left: 50px;">
+                    <ul style="float: left; margin-left: 150px;">
+                        <li>Cluster management</li>
+                        <li>Distribute against strategy &amp; constaints</li>
+                    </ul>
+
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+                <section class="no-slide-number"> <!-- add class="no-slide-number" to hide the slide number during this slide -->
+                    <h3>What's new ?</h3>
+                    <img src="img/releases.png" />
+                    <p style="text-align:center; font-size: 60%;"><a href="https://releases.dockerproject.org/">https://releases.dockerproject.org/</a></p>
+                </section>
+
+				<section>
+					<h2>Engine (1.9)</h2>
+                    <ul>
+                        <li>Network</li>
+                        <li>Volumes</li>
+                    </ul>
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+                <section>
+					<h2>Engine (1.9) - Network</h2>
+                    <p>Create virtual networks and place containers in without pain</p>
+                    <p>Demo !</p>
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+                <section>
+					<h2>Engine (1.9) - Network</h2>
+                    <ul>
+                        <li>Automated service disovery, deprecate --link usage</li>
+                        <li>Isolate stacks</li>
+                        <li>Even work even on multi-host (swarm)!</li>
+                    </ul>
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+                <section>
+					<h2>Engine (1.9) - Volumes</h2>
+                    <pre><code data-trim>$ docker create --name=db-data -v /var/lib/mysql mysql true
+$ docker run -d --volumes-from db-data mysql
+</code></pre>
+                    <ul>
+                        <li>Allows to identify "clearly" data containers</li>
+                        <li>Support plugins</li>
+                        <li>... not that much for the time being</li>
+                    </ul>
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+                <section>
+					<h2>Compose (1.5.1)</h2>
+                    <ul>
+                        <li>Variables</li>
+                        <li>Multiple compose files</li>
+                    </ul>
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+                <section>
+					<h2>Machine (0.5.1)</h2>
+                    <ul>
+                        <li>Split &amp; externalize</li>
+                        <li>On the road to kick boot2docker-cli</li>
+                    </ul>
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+                <section>
+					<h2>Swarm (1.0)</h2>
+                    <ul>
+                        <li>General availability</li>
+                        <li>Stability &amp; reliability</li>
+                        <li>1,000 nodes, 30,000 containers, 1 Swarm manager, 250ms</li>
+                    </ul>
+					<div class="footer"><img src="css/theme/enalean/img/enalean-logo-tiny.png" /><span class="twitter">@vaceletm</span><a href="www.enalean.com">www.enalean.com</a></div>
+				</section>
+
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+        <script>
+            Reveal.initialize({
+                width: '100%',
+                height: '100%',
+                margin: 0,
+                controls: false,
+                progress: true,
+                history: true,
+                center: false,
+                slideNumber: true,
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+        </script>
+        <script>
+            function handleNoSlideNumber() {
+                var sections = document.querySelectorAll("section.present");
+                var slide_number = document.querySelectorAll(".slide-number");
+
+                for (var i = 0, length = sections.length; i < length; i++) {
+                    if (sections[i].classList.contains('no-slide-number')) {
+                        slide_number[0].style.display = 'none';
+                    } else {
+                        slide_number[0].style.display = 'block';
+                    }
+                }
+            }
+            Reveal.addEventListener('ready', function(event) { handleNoSlideNumber(); });
+            Reveal.addEventListener('slidechanged', function(event) { handleNoSlideNumber(); });
+        </script>
+    </body>
+</html>
